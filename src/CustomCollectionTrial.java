@@ -1,4 +1,7 @@
 import customArrayList.MyArrayList;
+import customHashSet.MyHashSet;
+
+import java.util.Iterator;
 
 public class CustomCollectionTrial {
 
@@ -9,13 +12,24 @@ public class CustomCollectionTrial {
             myArrayList.put(i);
         }
 
-        Integer i = myArrayList.get(5);
-        System.out.println(i);
-        Integer j = myArrayList.get(15);
+        Integer m = myArrayList.get(5);
+        System.out.println(m);
+        Integer n = myArrayList.get(15);
 
         myArrayList.delete(5);
         myArrayList.delete(27);
 
+        MyHashSet<String> names = new MyHashSet<>();
+        names.put("Nastya");
+        names.put("Nastya");
+        for(int i = 0; i < 20; i++) {
+            names.put("Nastya" + i);
+        }
 
+        names.delete("Nastya5");
+        System.out.println(names.contains("Nastya5"));
+        Iterator<Object> iter = names.iterator();
+        System.out.println(iter.hasNext());
+        System.out.println(iter.next());
     }
 }

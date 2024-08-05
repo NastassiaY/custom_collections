@@ -73,7 +73,10 @@ public class MyArrayList<T> {
         }
 
         this.elements[index] = null;
-        size--;
+        for(int i = index+1; i < this.getSize(); i++) {
+            elements[i-1] = elements[i];
+        }
+                size--;
         System.out.println("The Object at " + index + " has been deleted.");
     }
 

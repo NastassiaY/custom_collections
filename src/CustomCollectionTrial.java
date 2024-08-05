@@ -15,8 +15,10 @@ public class CustomCollectionTrial {
         Integer m = myArrayList.get(5);
         System.out.println(m);
         Integer n = myArrayList.get(15);
+        System.out.println(n);
 
         myArrayList.delete(5);
+        System.out.println(myArrayList.get(5));
         myArrayList.delete(27);
 
         MyHashSet<String> names = new MyHashSet<>();

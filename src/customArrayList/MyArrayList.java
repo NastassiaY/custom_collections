@@ -5,7 +5,9 @@ import java.util.Arrays;
 public class MyArrayList<T> {
     private Object[] elements;
     private int initialCapacity = 10;
+    private float initialLoadFactor = 0.75F;
     private int size = 0;
+
 
     public MyArrayList() {
         elements = new Object[initialCapacity];
@@ -20,6 +22,15 @@ public class MyArrayList<T> {
                 + this.getInitialCapacity());
     }
 
+    public MyArrayList(int initialCapacity, float initialLoadFactor) {
+        this.initialCapacity = initialCapacity;
+        this.initialLoadFactor = initialLoadFactor;
+        elements = new Object[initialCapacity];
+        System.out.println("The new arraylist has been created. Initial capacity is "
+                + this.getInitialCapacity());
+    }
+
+
     public int getSize() {
         return size;
     }
@@ -28,11 +39,16 @@ public class MyArrayList<T> {
         return initialCapacity;
     }
 
+    public float getInitialLoadFactor() {
+        return initialLoadFactor;
+    }
+
+
     public void put(T element){
         elements[this.getSize()] = element;
         System.out.println("The element has been put with index [" + this.getSize() + "]");
         size++;
-        if(this.getSize() == this.initialCapacity) {
+        if(this.getSize() == Math.round(this.getInitialCapacity()*this.getInitialLoadFactor())) {
             autoResize();
         }
     }
@@ -67,6 +83,5 @@ public class MyArrayList<T> {
         this.initialCapacity = currentCapacity;
         System.out.println("The arrayList has been resized");
     }
-
 
 }
